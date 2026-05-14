@@ -4,11 +4,14 @@ import ThemeBox from "./ThemeBox";
 
 const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
   const { tema } = React.useContext(ThemeContext);
-
+ 
   return (
     <div className="card-container" key={dataItem.id}>
       <span className="product-tag" data-theme={tema}>{dataItem.product_type || 'Produto'}</span>
-      <img src={dataItem.image_link} alt={dataItem.name} />
+      <img src={dataItem.image_link || '/makeupPlaceholder.jpg' } alt={dataItem.name} onError={({ target }) => {
+    target.onerror = null; // Previne loops infinitos se o placeholder também quebrar
+    target.src = '/makeupPlaceholder.jpg';
+  }} />
 
       <ul className="card-list" data-theme={tema}>
         {" "}

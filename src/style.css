@@ -4,7 +4,8 @@
   --main-bg-color: #fae3d7;
   --card-bg-color: #ffffff;
   --primary-text: #4a240d;
-  --secondary-text: #f2e2d9;
+  --secondary-text: #714126;
+  --details:#f5ba9b;
   --button-color: #f58038;
   --button-selected: #fb9f65;
 }
@@ -14,8 +15,9 @@
 [data-theme="glam"] {
   --main-bg-color: #201046;
   --card-bg-color: #fff;
-  --primary-text: #efe8ff;
-  --secondary-text: #37226c;
+  --primary-text: #aa3b6b;
+  --secondary-text: #5e4994;
+  --details:#52398d;
   --button-color: #f5388a;
   --button-selected: #f78ab6;
 }
@@ -61,6 +63,7 @@ i.bi.bi-sun {
 .button-list {
   list-style: none;
   display: flex;
+  padding: 0;
   gap: 12px;
   font-family: "Roboto", sans-serif;
 }
@@ -89,8 +92,9 @@ i.bi.bi-sun {
 
 .gallery-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  max-width: 80vw;
+  
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  max-width: 90vw;
   gap: 24px;
   margin: 32px auto;
 }
@@ -99,7 +103,7 @@ i.bi.bi-sun {
 
 .card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   
   gap: 6px;
   padding: 16px;
   border-radius: 5px;
@@ -107,7 +111,7 @@ i.bi.bi-sun {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   align-items: center;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .card-container:hover {
@@ -125,6 +129,7 @@ i.bi.bi-sun {
 }
 
 .card-container img {
+  max-width: 100%;
   margin: 0 auto;
   align-content: center;
 }
@@ -134,24 +139,25 @@ i.bi.bi-sun {
   flex-direction: column;
   margin: 0 auto;
   width: 100%;
-  list-style: none;  
+  list-style: none;
   gap: 18px;
   font-family: "Roboto", sans-serif;
   padding: 12px;
-  color: var(--primary-text);
+  color: var(--secondary-text);
 }
 
 .color-list {
   list-style: none;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .product-price {
   font-size: 1.75rem;
   font-weight: bold;
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 
 .product-color {
@@ -233,3 +239,26 @@ input:focus {
   background-color: var(--button-selected);
   color: var(--secondary-text);
 }
+
+/* Estilizar Select */
+
+.select-container {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+.seleciona-produto {
+  border: 2px solid var(--primary-text);
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  color: var(--primary-text);
+  border-radius: 0;
+}
+

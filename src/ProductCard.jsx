@@ -3,64 +3,29 @@ import ThemeContext from "./ThemeContext";
 import ThemeBox from "./ThemeBox";
 
 const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
-  const {tema} = React.useContext(ThemeContext);
+  const { tema } = React.useContext(ThemeContext);
 
   return (
-    <div
-      key={dataItem.id}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        padding: "16px",
-        borderRadius: "5px",
-        backgroundColor: tema.secondaryColor,
-        boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.1)",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <img
-        style={{ margin: "10px auto", alignContent: "center" }}
-        src={dataItem.image_link}
-        alt={dataItem.name}
-      />
+    <div className="card-container" key={dataItem.id}>
+      <span className="product-tag" data-theme={tema}>{dataItem.product_type || 'Produto'}</span>
+      <img src={dataItem.image_link} alt={dataItem.name} />
 
-      <ul
-        style={{
-          listStyle: "none",
-          gap: "12px",
-          fontFamily: "sans-serif",
-          padding: "12px",
-          color: tema.primaryColor,
-        }}
-      >
+      <ul className="card-list" data-theme={tema}>
         {" "}
         <li>{dataItem.name}</li>{" "}
-        <li style={{ marginTop: "12px" }}>
+        <li className="product-price">
           R$ {dataItem.price ? dataItem.price.replace(".", ",") : "0,00"}
         </li>
-        <ul
-          style={{
-            listStyle: "none",
-            gap: "12px",
-            fontFamily: "sans-serif",
-            padding: "12px",
-            display: "flex",
-          }}
-        >
+        <ul className="color-list">
           {dataItem.product_colors.map((colorObj, index) => {
-            const chaveUnica = `${dataItem.id}-${index}`
-            return(
+            const chaveUnica = `${dataItem.id}-${index}`;
+            return (
               <li key={chaveUnica}>
                 <span
-                  title={colorObj.colour_name || 'Cor sem nome'}
+                  className="product-color"
+                  title={colorObj.colour_name || "Cor sem nome"}
                   style={{
                     backgroundColor: colorObj.hex_value,
-                    display: "inline-block",
-                    width: "18px",
-                    height: "18px",
-                    borderRadius: "50%",
                   }}
                 ></span>
               </li>
@@ -68,24 +33,20 @@ const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
           })}
         </ul>
       </ul>
-      <button
-        onClick={() => onFave(dataItem)}
-        style={{
-          padding: "8px 12px",
-          border: "none",
-          borderRadius: "3px",
-          backgroundColor: "transparent",
-          fontSize: "20px",
-          cursor: "pointer",
-          color: tema.button,
-        }}
-      >
-        {!estaSalvo ? (
-          <i className="bi bi-heart"></i>
-        ) : (
-          <i className="bi bi-heart-fill"></i>
-        )}
-      </button>
+      <div className="cta-container">
+        <button
+          className="fave-button"
+          data-theme={tema}
+          onClick={() => onFave(dataItem)}
+        >
+          {!estaSalvo ? (
+            <i className="bi bi-heart"></i>
+          ) : (
+            <i className="bi bi-heart-fill"></i>
+          )}
+        </button>
+        <a className='comprar-btn' data-theme={tema} href={dataItem.website_link}>Comprar</a>
+      </div>
     </div>
   );
 };

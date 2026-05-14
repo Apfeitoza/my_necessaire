@@ -6,48 +6,29 @@ const Header = ({ abaAtual, setAbaAtual }) => {
   const { tema, trocaTema } = React.useContext(ThemeContext);
   return (
     <header>
-      <div style={{ display: "flex", justifyContent:'space-between', alignItems:'center', margin:'20px 50px'}}>
-        <h1
-          style={{
-            color: tema.secondaryColor,
-            fontFamily: "sans-serif",
-            textAlign: "center",
-          }}
-        >
+      <div className="nav-container">
+        <h1 className="title" data-theme={tema}>
           MakeUp Api
         </h1>
-        <div>
-          {tema.nome === "Glam" ? (
-            <button style={{border:'none', backgroundColor:'transparent', padding: '20px', color: tema.button}} onClick={trocaTema}>
-              <i style={{fontSize:'20px'}} className="bi bi-moon"></i>
+        <div>      
+          {//Ternario para exibição do botão de troca de tema
+          tema === "glam" ? ( 
+            <button className="btn-tema" data-theme={tema} onClick={trocaTema}>
+              <i className="bi bi-moon"></i>
             </button>
           ) : (
-            <button style={{border:'none', backgroundColor:'transparent', padding: '20px', color: tema.button}} onClick={trocaTema}>
-              <i style={{fontSize:'20px'}} className="bi bi-sun"></i>
+            <button className="btn-tema" data-theme={tema} onClick={trocaTema}>
+              <i className="bi bi-sun"></i>
             </button>
           )}
         </div>
       </div>
 
-      <nav style={{ display: "flex", justifyContent: "center" }}>
-        <ul
-          style={{
-            listStyle: "none",
-            display: "flex",
-            gap: "12px",
-            fontFamily: "sans-serif",
-          }}
-        >
+      <nav data-theme={tema} className="navigation">
+        <ul className="button-list" style={{}}>
           <li>
             <button
-              style={{
-                backgroundColor: abaAtual === "busca" ? tema.secondaryColor : tema.button,
-                color: tema.primaryColor,
-                padding: " 8px 16px",
-                borderRadius: "3px",
-                cursor: "pointer",
-                border: "none",
-              }}
+              className={abaAtual === "busca" ? "ativo" : ""}
               onClick={() => setAbaAtual("busca")}
             >
               Produtos
@@ -56,15 +37,7 @@ const Header = ({ abaAtual, setAbaAtual }) => {
 
           <li>
             <button
-              style={{
-                backgroundColor: abaAtual !== "busca" ? tema.secondaryColor : tema.button,
-                color: tema.primaryColor,
-                padding: " 8px 16px",
-                borderRadius: "3px",
-                cursor: "pointer",
-                textDecoration: "none",
-                border: "none",
-              }}
+              className={abaAtual !== "busca" ? "ativo" : ""}
               onClick={() => setAbaAtual("favoritos")}
             >
               Favoritos

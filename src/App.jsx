@@ -32,7 +32,7 @@ const App = () => {
     e.preventDefault();
     const marca = busca.toLowerCase();
     const url = `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${marca}`;
-    request(url);
+    request(url);   
     clearInput();
   }
 

@@ -1,17 +1,235 @@
+/* Tema claro */
+
 :root {
   --main-bg-color: #fae3d7;
-  --card-bg-color: #f1f1f1;
+  --card-bg-color: #ffffff;
   --primary-text: #4a240d;
   --secondary-text: #f2e2d9;
   --button-color: #f58038;
   --button-selected: #fb9f65;
 }
 
+/* Tema escuro */
+
 [data-theme="glam"] {
   --main-bg-color: #201046;
-  --card-bg-color: #efe8ff;
-  --primary-text: #37226c;
-  --secondary-text: #efe8ff;
+  --card-bg-color: #fff;
+  --primary-text: #efe8ff;
+  --secondary-text: #37226c;
   --button-color: #f5388a;
   --button-selected: #f78ab6;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+/*ESTILOS DO HEADER*/
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 50px;
+}
+
+.title {
+  font-family: "Elms Sans", sans-serif;
+  color: var(--primary-text);
+}
+
+.btn-tema {
+  background-color: transparent;
+  color: var(--button-color);
+  border: none;
+  padding: 20px;
+}
+
+i.bi.bi-moon {
+  font-size: 20px;
+}
+
+i.bi.bi-sun {
+  font-size: 25px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.button-list {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+.button-list button {
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--button-color);
+  color: var(--secondary-text);
+}
+
+.button-list .ativo {
+  background-color: var(--button-selected);
+  color: var(--primary-text);
+}
+
+/* Estilos da Galeria de Produtos */
+
+.status-text {
+  color: var(--secondary-text);
+  font-family: "Elms Sans", sans-serif;
+  text-align: center;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 80vw;
+  gap: 24px;
+  margin: 32px auto;
+}
+
+/* Estilos do Product Card */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 5px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  align-items: center;
+  transition: transform .5s;
+}
+
+.card-container:hover {
+  transform: scale(1.03);
+}
+
+.product-tag {
+  align-self: flex-start;
+  font-family: "Elms Sans", sans-serif;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  background-color: var(--button-color);
+  border-radius: 3px;
+}
+
+.card-container img {
+  margin: 0 auto;
+  align-content: center;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  list-style: none;  
+  gap: 18px;
+  font-family: "Roboto", sans-serif;
+  padding: 12px;
+  color: var(--primary-text);
+}
+
+.color-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.product-price {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--secondary-text);
+}
+
+.product-color {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.product-color:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.fave-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--button-color);
+}
+.cta-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.comprar-btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: var(--button-color);
+  color: var(--primary-text);
+  font-family: "Roboto", sans-serif;
+  border-radius: 3px;
+}
+.comprar-btn:hover {
+  background-color: var(--button-selected);
+  color: var(--secondary-text);
+}
+
+/* Estilos de barra de busca */
+
+.search-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  margin: 12px auto;
+  max-width: 80vw;
+}
+
+input {
+  border-top: 2px solid var(--primary-text);
+  border-left: 2px solid var(--primary-text);
+  border-bottom: 2px solid var(--primary-text);
+  background-color: var(--main-bg-color);
+  padding: 8px 16px;
+  border-right: none;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid var(--secondary-text);
+}
+
+.search-button {
+  border: none;
+  background-color: var(--button-color);
+  color: var(--primary-text);
+  padding: 9px 16px;
+  border-right: 2px solid var(--primary-text);
+  border-top: 2px solid var(--primary-text);
+  border-bottom: 2px solid var(--primary-text);
+  border-left: none;
+}
+
+.search-button:hover {
+  background-color: var(--button-selected);
+  color: var(--secondary-text);
 }

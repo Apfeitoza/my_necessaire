@@ -1,9 +1,10 @@
 import React from "react";
 import ThemeContext from "./ThemeContext";
 import ThemeBox from "./ThemeBox";
+import Select from "./Select";
 
 const SearchBar = ({ valor, aoMudar, aoBuscar, meuRef }) => {
-  const { tema, trocaTema } = React.useContext(ThemeContext);
+  const { tema } = React.useContext(ThemeContext);
   return (
     <form className="search-container" action="search" onSubmit={aoBuscar}>
       <input
@@ -15,11 +16,16 @@ const SearchBar = ({ valor, aoMudar, aoBuscar, meuRef }) => {
         value={valor}
         ref={meuRef}
         onChange={({ target }) => aoMudar(target.value)}
-      />     
+      />
+   
       <button className="search-button" type="submit">
         Buscar
       </button>
+
+      
     </form>
+
+
   );
 };
 

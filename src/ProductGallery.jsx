@@ -10,6 +10,7 @@ const ProductGallery = ({
   loading,
   error,
   exibirLista,
+  dadosApi,  
 }) => {
   const { tema } = React.useContext(ThemeContext);
   if (!data) return null;
@@ -27,7 +28,7 @@ const ProductGallery = ({
           Ocorreu um erro: {error}
         </p>
       )}
-      {data && data.length === 0 && !loading && (
+      {dadosApi && dadosApi.length === 0 && !loading && (
         <p className="status-text" data-theme={tema}>
           Não conseguimos encontrar essa marca, tente novamente
         </p>

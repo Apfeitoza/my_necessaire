@@ -1,0 +1,17 @@
+:root {
+  --main-bg-color: #fae3d7;
+  --card-bg-color: #f1f1f1;
+  --primary-text: #4a240d;
+  --secondary-text: #f2e2d9;
+  --button-color: #f58038;
+  --button-selected: #fb9f65;
+}
+
+[data-theme="glam"] {
+  --main-bg-color: #201046;
+  --card-bg-color: #efe8ff;
+  --primary-text: #37226c;
+  --secondary-text: #efe8ff;
+  --button-color: #f5388a;
+  --button-selected: #f78ab6;
+}

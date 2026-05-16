@@ -99,6 +99,41 @@ i.bi.bi-sun {
   border-bottom: 3px solid var(--button-color);
 }
 
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    position: relative;
+  }
+
+  .tema-container {
+    top: 4%;
+    left: -10%;
+    position: absolute;
+  }
+
+  .btn-tema {
+    align-self: start;
+  }
+
+  .navigation {
+    order: 3;
+  }
+}
+
+@media screen and (max-width: 561px) {
+  .tema-container {
+    top: 4%;
+    left: -15%;   
+  }
+}
+
 /* Estilos da Galeria de Produtos */
 
 .status-card {
@@ -110,12 +145,12 @@ i.bi.bi-sun {
   padding: 32px;
 }
 
-.status-card i{
+.status-card i {
   font-size: 5rem;
   color: var(--button-color);
 }
 
-.erro { 
+.erro {
   color: rgba(255, 0, 0, 0.694);
 }
 
@@ -137,7 +172,7 @@ i.bi.bi-sun {
 
 .card-container {
   display: flex;
-  flex-direction: column;   
+  flex-direction: column;
   gap: 6px;
   padding: 16px;
   border-radius: 0;
@@ -246,6 +281,18 @@ i.bi.bi-sun {
   transform: scale(1.1);
 }
 
+@media screen and (min-width: 769px) and (max-width: 998px) {
+  .gallery-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768.9px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Estilos de barra de busca */
 
 .search-container {
@@ -287,12 +334,18 @@ input:focus {
 }
 
 /* Estilizar Select */
+.select-label {
+  font-family: var(--font-display);
+  color: var(--primary-text);
+  font-size: 0.875rem;
+}
 
 .select-container {
   display: flex;
-  width: 100vw;
+  max-width: 80vw;
+  margin: 0 auto;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 select,
@@ -301,10 +354,11 @@ select,
 }
 
 .seleciona-produto {
-  border: 2px solid var(--primary-text);
-  font-family: "Roboto", sans-serif;
+  border: none;
+  border-bottom: 2px solid var(--primary-text);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.875rem;
   padding: 10px;
   color: var(--primary-text);
   border-radius: 0;
 }
-

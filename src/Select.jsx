@@ -6,7 +6,8 @@ const Select = ({ tipo, aoMudar, aoSelecionar, tipoProduto }) => {
   const { tema } = React.useContext(ThemeContext);
   
   return (
-    <div className="select-container">
+    <div className="select-container"> 
+    <label className="select-label" htmlFor="select">Filtrar por categoria:</label>     
       <select
         name="tipo-produto"
         className="seleciona-produto"

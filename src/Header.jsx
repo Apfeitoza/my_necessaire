@@ -5,7 +5,7 @@ import ThemeBox from "./ThemeBox";
 const Header = ({ abaAtual, setAbaAtual }) => {
   const { tema, trocaTema } = React.useContext(ThemeContext);
   return (
-    <header>
+    <header className="header">
       <div className="nav-container">
         <h1 className="title" data-theme={tema}>
           My <span>Make</span> Necessaire

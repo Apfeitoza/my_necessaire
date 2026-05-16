@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "./useFetch";
 import SearchBar from "./SearchBar";
 import ProductGallery from "./ProductGallery";
-import useLocalStorage from "../../ch3/src/useLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 import ThemeContext from "./ThemeContext";
 import ThemeBox from "./ThemeBox";
 import Header from "./Header";

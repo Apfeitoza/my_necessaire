@@ -10,7 +10,7 @@ const ProductGallery = ({
   loading,
   error,
   exibirLista,
-  dadosApi,
+  dadosApi,  
 }) => {
   const { tema } = React.useContext(ThemeContext);
   if (!data) return null;

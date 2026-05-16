@@ -81,6 +81,7 @@ i.bi.bi-sun {
   padding: 0;
   list-style: none;
   display: flex;
+  padding: 0;
   gap: 12px;
 }
 
@@ -136,7 +137,7 @@ i.bi.bi-sun {
 
 .card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   
   gap: 6px;
   padding: 16px;
   border-radius: 0;
@@ -186,6 +187,7 @@ i.bi.bi-sun {
   list-style: none;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -283,3 +285,26 @@ input:focus {
 .search-button i {
   font-size: 25px;
 }
+
+/* Estilizar Select */
+
+.select-container {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+.seleciona-produto {
+  border: 2px solid var(--primary-text);
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  color: var(--primary-text);
+  border-radius: 0;
+}
+

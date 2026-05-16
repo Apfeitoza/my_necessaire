@@ -10,7 +10,8 @@ const ProductGallery = ({
   loading,
   error,
   exibirLista,
-  dadosApi,  
+  abaAtual,
+  dadosApi,
 }) => {
   const { tema } = React.useContext(ThemeContext);
   if (!data) return null;
@@ -19,21 +20,30 @@ const ProductGallery = ({
     <div>
       {" "}
       {loading && (
-        <p className="status-text" data-theme={tema}>
-          Carregando produtos...
-        </p>
+        <div className="status-card">
+          <i class="bi bi-three-dots"></i>
+          <p className="status-text" data-theme={tema}>
+            Carregando produtos...
+          </p>
+        </div>
       )}
       {error && (
-        <p className="status-text" data-theme={tema}>
-          Ocorreu um erro: {error}
-        </p>
+        <div className="status-card">
+          <i class="erro bi bi-exclamation-octagon"></i>
+          <p className="status-text" data-theme={tema}>
+            Ocorreu um erro: {error}
+          </p>
+        </div>
       )}
       {dadosApi && dadosApi.length === 0 && !loading && (
-        <p className="status-text" data-theme={tema}>
-          Não conseguimos encontrar essa marca, tente novamente
-        </p>
+        <div className="status-card">
+          <i class="bi bi-heartbreak"></i>
+          <p className="status-text" data-theme={tema}>
+            Não conseguimos encontrar essa marca, tente novamente!
+          </p>
+        </div>
       )}
-      {exibirLista && exibirLista.length > 0 ? (
+      {exibirLista && exibirLista.length > 0 && (
         <div className="gallery-container">
           {data.map((item) => {
             const favoritado = favoritos.some((salvo) => salvo.id === item.id);
@@ -47,10 +57,14 @@ const ProductGallery = ({
             );
           })}
         </div>
-      ) : (
-        <p className="status-text" data-theme={tema}>
-          Sua necessaire está vazia, salve algum produto antes!
-        </p>
+      )}
+      {abaAtual === "favoritos" && data && data.length === 0 && (
+        <div className="status-card">
+          <i class="bi bi-bag-x"></i>
+          <p className="status-text" data-theme={tema}>
+            Sua necessaire está vazia, salve algum produto antes!
+          </p>
+        </div>
       )}
     </div>
   );

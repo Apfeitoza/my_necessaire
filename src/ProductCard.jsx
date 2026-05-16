@@ -48,7 +48,13 @@ const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
             <i className="bi bi-heart-fill"></i>
           )}
         </button>
-        <a className='comprar-btn' data-theme={tema} href={dataItem.website_link}>Comprar</a>
+        <a
+          className="comprar-btn"
+          data-theme={tema}
+          href={dataItem.website_link}
+        >
+          Comprar
+        </a>
       </div>
     </div>
   );

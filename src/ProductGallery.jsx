@@ -10,6 +10,7 @@ const ProductGallery = ({
   loading,
   error,
   exibirLista,
+  dadosApi,
 }) => {
   const { tema } = React.useContext(ThemeContext);
   if (!data) return null;
@@ -18,19 +19,28 @@ const ProductGallery = ({
     <div>
       {" "}
       {loading && (
+        <div className="status-card">  
+        <i class="bi bi-three-dots"></i>
         <p className="status-text" data-theme={tema}>
           Carregando produtos...
         </p>
+        </div>
       )}
       {error && (
+        <div className="status-card">        
+        <i class="erro bi bi-exclamation-octagon"></i>
         <p className="status-text" data-theme={tema}>
           Ocorreu um erro: {error}
         </p>
+        </div>
       )}
-      {data && data.length === 0 && !loading && (
+      {dadosApi && dadosApi.length === 0 && !loading && (
+         <div className="status-card">  
+         <i class="bi bi-heartbreak"></i>
         <p className="status-text" data-theme={tema}>
-          Não conseguimos encontrar essa marca, tente novamente
+          Não conseguimos encontrar essa marca, tente novamente!
         </p>
+        </div>
       )}
       {exibirLista && exibirLista.length > 0 ? (
         <div className="gallery-container">

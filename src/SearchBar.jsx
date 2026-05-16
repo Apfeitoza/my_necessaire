@@ -17,7 +17,7 @@ const SearchBar = ({ valor, aoMudar, aoBuscar, meuRef }) => {
         onChange={({ target }) => aoMudar(target.value)}
       />     
       <button className="search-button" type="submit">
-        Buscar
+        <i className="bi bi-search-heart"></i>
       </button>
     </form>
   );

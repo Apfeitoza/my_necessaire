@@ -7,8 +7,18 @@ const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
 
   return (
     <div className="card-container" key={dataItem.id}>
-      <span className="product-tag" data-theme={tema}>{dataItem.product_type || 'Produto'}</span>
-      <img src={dataItem.image_link} alt={dataItem.name} />
+      <span className="product-tag" data-theme={tema}>
+        {dataItem.product_type || "Produto"}
+      </span>
+      <img
+        src={dataItem.image_link  || "image-alt.svg"}
+        alt={dataItem.name}
+        onError={({ target }) => {
+          target.onerror = null; // Previne loops infinitos se o placeholder também quebrar
+
+          target.src = "image-alt.svg";
+        }}
+      />
 
       <ul className="card-list" data-theme={tema}>
         {" "}
@@ -45,7 +55,13 @@ const ProductCard = ({ dataItem, estaSalvo, onFave }) => {
             <i className="bi bi-heart-fill"></i>
           )}
         </button>
-        <a className='comprar-btn' data-theme={tema} href={dataItem.website_link}>Comprar</a>
+        <a
+          className="comprar-btn"
+          data-theme={tema}
+          href={dataItem.website_link}
+        >
+          Comprar
+        </a>
       </div>
     </div>
   );
